@@ -9,7 +9,8 @@ Sebelum memulai, pastikan Anda memiliki:
 2. **Composer**
 3. **Node.js** dan **npm**
 4. **Database** (MySQL atau MariaDB)
-5. **Git** (opsional, jika ingin mengelola repositori)
+5. **Laragon** (untuk memudahkan pengelolaan lingkungan lokal)
+6. **Git** (opsional, jika ingin mengelola repositori)
 
 ## Langkah Instalasi
 
@@ -44,9 +45,10 @@ Ikuti langkah-langkah berikut untuk mengatur proyek:
    DB_HOST=127.0.0.1
    DB_PORT=3306
    DB_DATABASE=nama_database
-   DB_USERNAME=username_database
-   DB_PASSWORD=password_database
+   DB_USERNAME=root
+   DB_PASSWORD=
    ```
+   Pastikan `DB_USERNAME` dan `DB_PASSWORD` sesuai dengan pengaturan di Laragon.
 
 6. **Generate Application Key**
    Jalankan perintah berikut untuk menghasilkan kunci aplikasi:
@@ -63,7 +65,7 @@ Ikuti langkah-langkah berikut untuk mengatur proyek:
 ## Cara Menjalankan
 
 1. **Jalankan Server Lokal**
-   Untuk menjalankan server lokal, gunakan perintah berikut:
+   Jika Anda menggunakan Laragon, pastikan Laragon sudah berjalan. Klik "Start All" di Laragon, lalu buka terminal di folder proyek dan jalankan:
    ```bash
    php artisan serve
    ```
@@ -76,11 +78,20 @@ Ikuti langkah-langkah berikut untuk mengatur proyek:
    ```
 
 ## Ekspor Database
-Jika diperlukan, Anda dapat mengekspor database menggunakan perintah berikut di MySQL:
+Jika Anda menggunakan Laragon, langkah berikut dapat digunakan untuk mengekspor database:
 
-```sql
-mysqldump -u username_database -p nama_database > nama_file.sql
+1. Buka Laragon dan klik menu **Database**.
+2. Pilih database proyek Anda dari daftar.
+3. Klik kanan pada nama database, lalu pilih **Export** atau gunakan fitur backup.
+4. Simpan file SQL ke lokasi yang diinginkan.
+
+Jika ingin menggunakan perintah manual melalui terminal:
+
+```bash
+mysqldump -u root -p nama_database > nama_file.sql
 ```
+
+Masukkan password jika diminta (kosongkan jika tidak ada password).
 
 ## Catatan
 - Pastikan semua dependensi dan konfigurasi telah diatur dengan benar sebelum menjalankan aplikasi.
