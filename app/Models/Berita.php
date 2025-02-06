@@ -22,7 +22,7 @@ class Berita extends Model
         return [
             'slug' => [
                 'source' => 'judul'
-            ]
+            ]  
         ];
     }
 }
